@@ -46,11 +46,7 @@ function onPhotoDataSuccess(imageData) {
             // Convertimos la imagen del canvas en datarurl
             //console.log(hidden_canvas.width ,"&&", hidden_canvas.height);
             return hidden_canvas.toDataURL('image/png');
-        }*/
-        var c = document.getElementById("canvas");
-        var ctx = c.getContext("2d");
-        ctx.drawImage(imageNode, 10, 10);
-        return c.toDataURL();
+        }*/        
     } 
     /****************************************************/
     var datosPaciente={};         
@@ -60,7 +56,10 @@ function onPhotoDataSuccess(imageData) {
         datosPaciente.num_id	=$("#pre_identidad").val();
         datosPaciente.prefix	=$("#pre_prefix").val();
         datosPaciente.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
-        datosPaciente.foto = takeSnapshot();
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+            ctx.drawImage(imageNode, 10, 10);
+        datosPaciente.foto = c.toDataURL('image/png');
         delServidor({mensaje:"Cargando Foto: " + datosPaciente.foto});
         socket.emit("imagenPaciente",datosPaciente); 
     if(datosPaciente.paciente_k != 0){  
