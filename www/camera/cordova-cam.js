@@ -10,9 +10,9 @@ function onDeviceReady() {
     }
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;    
-    /*if (!FileTransfer) {
+    if (!FileTransfer) {
       throw new Error('Cordova File Transfer required.');
-    }*/
+    }
 } 
 // Wait for Cordova to connect with the device
 document.addEventListener("app.Ready", onDeviceReady, false);
@@ -27,12 +27,12 @@ function onPhotoDataSuccess(imageData) {
     function fail(error) {
         delServidor({mensaje:"An error has occurred: Code = " + error.code,success:false});
     }
-    //var uri = encodeURI("http://medic-os.sofftek.hn");
-    //var fileURL = imageData;
-    //var options = new FileUploadOptions();
-    //    options.fileKey="file";
+    var uri = encodeURI(inputrootUrl);
+    var fileURL = imageData;
+    var options = new FileUploadOptions();
+        options.fileKey="file";
     
-    /************** Hernan proceso **************/
+    /************** Hernan proceso **************
     function takeSnapshot(){
         var hidden_canvas = document.querySelector('canvas'),
             context = hidden_canvas.getContext('2d');
@@ -49,6 +49,7 @@ function onPhotoDataSuccess(imageData) {
             return hidden_canvas.toDataURL('image/png');
         }
     } 
+    ****************************************************
     var datosPaciente={}; 
         
         datosPaciente.paciente_k=$("#pre_paciente_k").val();
@@ -57,10 +58,10 @@ function onPhotoDataSuccess(imageData) {
         datosPaciente.num_id	=$("#pre_identidad").val();
         datosPaciente.prefix	=$("#pre_prefix").val();
         datosPaciente.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
-        console.log("Imagen - Paciente 1-> ",datosPaciente)
-        datosPaciente.foto = takeSnapshot();
+        //console.log("Imagen - Paciente 1-> ",datosPaciente)
+        datosPaciente.foto = //takeSnapshot();
         //console.log("Imagen - Paciente-> ",datosPaciente)
-        socket.emit("imagenPaciente",datosPaciente); 
+        //socket.emit("imagenPaciente",datosPaciente); 
     if(datosPaciente.paciente_k != 0){  
         if(datosPaciente.nombres!="" && datosPaciente.apellidos!="" && datosPaciente.num_id!=""){
           
@@ -72,7 +73,17 @@ function onPhotoDataSuccess(imageData) {
         alertas.contenido="Para guardar la foto debe crear el usuario antes.";
     }
     $(".app").css("display",true);
-    /********************************************/
+    ********************************************/
+    var params={}; 
+        params.paciente_k=$("#pre_paciente_k").val();
+        params.nombres	=$("#pre_nombre").val();
+        params.apellidos	=$("#pre_apellido").val();
+        params.num_id	=$("#pre_identidad").val();
+        params.prefix	=$("#pre_prefix").val();
+        params.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
+        //params.foto =
+        options.params = params;
+            
         /*params.user=$("#user").val();
         params.pass=MD5($("#pass").val());
         params.categoria=$('#catego').val();
@@ -84,26 +95,27 @@ function onPhotoDataSuccess(imageData) {
         params.longitud=$("#longitud").val();
         params.lugar_k=$("#lugar_k").val();
         options.params = params;
-        var d=new Date(), variable=d.getTime().toString();
-    if($("#nombreImg").val()!==""){
+        var d=new Date(), variable=d.getTime().toString();*/
+    /*if($("#nombreImg").val()!==""){
         var FT=$("#nombreImg").val();
             FT=FT.replace(/%/g,"_");
             options.fileName=FT+'_'+variable+".jpg";
-    }else{
+    }else{*/
         var FT=fileURL.substr(fileURL.lastIndexOf('/')+1);
         var lastJpg = FT.substr(FT.length - 3);
         if(lastJpg!=="jpg"){
             FT=FT.replace(/%/g,"_");
             options.fileName=FT+".jpg";
         }
-    }
+        socket.emit("imagenPaciente",options); 
+    //}
     
     options.mimeType="image/jpeg"; 
     options.directorio="imgPanta"; 
     var headers={'headerParam':'headerValue'};    
     options.headers = headers;
     
-    var ft = new FileTransfer();
+    /*var ft = new FileTransfer();
     ft.onprogress = function(ProgressEvent) {
         if (ProgressEvent.lengthComputable) {
             pbar.setValue(Math.round(ProgressEvent.loaded / ProgressEvent.total*100));
