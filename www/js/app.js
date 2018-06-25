@@ -366,7 +366,7 @@ function onAppReady(){
 
                                         }
 
-                                        $("#buscar").val($(this).attr("data-identidad"));
+                                        $("#buscar").val($(this).attr("data-identidad")); 
                                         $("#pre_identidad").val($(this).attr("data-identidad"));
                                         $("#pre_paciente_k").val($(this).attr("data-expediente"));
                                         $("#pre_nombre").val($(this).attr("data-nombre"));
@@ -389,7 +389,7 @@ function onAppReady(){
                                             activate_page("#citas_hoy"); 
                                             location.href="#citas_hoy";
                                         });
-                                        $("#imgPre").bind("click",function(){
+                                        $("#imgPre").bind("click",function(){                                            
                                             capturePhoto();
                                         });
                                         /********************** fondo *****************/
