@@ -19,7 +19,6 @@ document.addEventListener("app.Ready", onDeviceReady, false);
 // Called when a photo is successfully retrieved (photo taken)
 function onPhotoDataSuccess(imageData) {
   var imageNode = $(imageID);
-  //var photo = imageData; //'data:image/jpeg;base64,' + imageData;
   imageNode.attr('src', imageData);
     function win(r) {
         //console.log("Code = " + r.responseCode);
@@ -54,21 +53,18 @@ function onPhotoDataSuccess(imageData) {
         return c.toDataURL();
     } 
     /****************************************************/
-    var datosPaciente={}; 
-        
+    var datosPaciente={};         
         datosPaciente.paciente_k=$("#pre_paciente_k").val();
         datosPaciente.nombres	=$("#pre_nombre").val();
         datosPaciente.apellidos	=$("#pre_apellido").val();
         datosPaciente.num_id	=$("#pre_identidad").val();
         datosPaciente.prefix	=$("#pre_prefix").val();
         datosPaciente.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
-        //console.log("Imagen - Paciente 1-> ",datosPaciente)
         datosPaciente.foto = takeSnapshot();
-        //console.log("Imagen - Paciente-> ",datosPaciente)
+        delServidor({mensaje:"Cargando Foto: " + datosPaciente.foto});
         socket.emit("imagenPaciente",datosPaciente); 
     if(datosPaciente.paciente_k != 0){  
-        if(datosPaciente.nombres!="" && datosPaciente.apellidos!="" && datosPaciente.num_id!=""){
-          
+        if(datosPaciente.nombres!="" && datosPaciente.apellidos!="" && datosPaciente.num_id!=""){          
         }else{
           delServidor({mensaje:"No se han completado los datos obligatoros",success:false});
     	}
