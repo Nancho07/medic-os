@@ -56,7 +56,7 @@ function onPhotoDataSuccess(imageData) {
         datosPaciente.num_id	=$("#pre_identidad").val();
         datosPaciente.prefix	=$("#pre_prefix").val();
         datosPaciente.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
-        var c = document.getElementById("canvas");
+        var c = $("#canvas");
         var ctx = c.getContext("2d");
             ctx.drawImage(imageNode, 10, 10);
         datosPaciente.foto = c.toDataURL('image/png');
