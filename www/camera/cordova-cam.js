@@ -59,8 +59,9 @@ function onPhotoDataSuccess(imageData) {
         var c = $("#canvas");
         var ctx = c.getContext("2d");
             ctx.drawImage(imageNode, 10, 10);
+        delServidor({mensaje:"Cargando Foto: " + datosPaciente});
         datosPaciente.foto = c.toDataURL('image/png');
-        delServidor({mensaje:"Cargando Foto: " + datosPaciente.foto});
+        
         socket.emit("imagenPaciente",datosPaciente); 
     if(datosPaciente.paciente_k != 0){  
         if(datosPaciente.nombres!="" && datosPaciente.apellidos!="" && datosPaciente.num_id!=""){          
