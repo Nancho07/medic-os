@@ -4,7 +4,7 @@ var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 var imageID;
 // Cordova is ready to be used!
-function onDeviceReady() {
+function onDeviceReady() { 
     if (!navigator.camera) {
       throw new Error('Cordova camera plugin required to access hardware camera.');
     }
@@ -14,107 +14,31 @@ function onDeviceReady() {
       throw new Error('Cordova File Transfer required.');
     }
 } 
-// Wait for Cordova to connect with the device
 document.addEventListener("app.Ready", onDeviceReady, false);
 // Called when a photo is successfully retrieved (photo taken)
 function onPhotoDataSuccess(imageData) {
   var imageNode = $(imageID);
-  imageNode.attr('src', imageData);
+  imageNode.attr('src', "data:image/jpeg;base64,"+imageData); 
     function win(r) {
         //console.log("Code = " + r.responseCode);
     }    
     function fail(error) {
         delServidor({mensaje:"An error has occurred: Code = " + error.code,success:false});
     }
-    var uri = encodeURI(inputrootUrl);
-    var fileURL = imageData;
-    var options = new FileUploadOptions();
-        options.fileKey="file";
     
-    /************** Hernan proceso **************/
-    function takeSnapshot(){
-        /*var hidden_canvas = document.querySelector('canvas'),
-            context = hidden_canvas.getContext('2d');
-        var width = (imageNode.width()),
-            height = (imageNode.height());
-        if (width && height) {            
-            // Configuramos el canvas con las mismas dimensiones que el video
-            hidden_canvas.width = width;
-            hidden_canvas.height = height;
-            // Hacemos una copia
-            context.drawImage(imageNode, 0, 0, width, height);
-            // Convertimos la imagen del canvas en datarurl
-            //console.log(hidden_canvas.width ,"&&", hidden_canvas.height);
-            return hidden_canvas.toDataURL('image/png');
-        }*/        
-    } 
-    /****************************************************/
-    var datosPaciente={};         
-        datosPaciente.paciente_k=$("#pre_paciente_k").val();
-        datosPaciente.nombres	=$("#pre_nombre").val();
-        datosPaciente.apellidos	=$("#pre_apellido").val();
-        datosPaciente.num_id	=$("#pre_identidad").val();
-        datosPaciente.prefix	=$("#pre_prefix").val();
+    var datosPaciente={};    
+        datosPaciente.paciente_k=$("#pre_paciente_k").val().trim();
+        datosPaciente.nombres	=$("#pre_nombre").val().trim();
+        datosPaciente.apellidos	=$("#pre_apellido").val().trim();
+        datosPaciente.num_id	=$("#pre_identidad").val().trim();
+        datosPaciente.prefix	=$("#pre_prefix").val().trim();
         datosPaciente.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
-        var c = $("#canvas");
-        var ctx = c.getContext("2d");
-            ctx.drawImage(imageNode, 10, 10);
-        delServidor({mensaje:"Cargando Foto: " + datosPaciente});
-        datosPaciente.foto = c.toDataURL('image/png');
+        datosPaciente.foto = imageNode.attr('src');
+        datosPaciente.app	="medic";
         
-        socket.emit("imagenPaciente",datosPaciente); 
-    if(datosPaciente.paciente_k != 0){  
-        if(datosPaciente.nombres!="" && datosPaciente.apellidos!="" && datosPaciente.num_id!=""){          
-        }else{
-          delServidor({mensaje:"No se han completado los datos obligatoros",success:false});
-    	}
-    }else{
-        delServidor({mensaje:"Para guardar la foto debe crear el usuario antes.",success:false});
-        alertas.contenido="Para guardar la foto debe crear el usuario antes.";
-    }
-    //$(".app").css("display",true);
-    /********************************************/
-    /*var params={}; 
-        params.paciente_k=$("#pre_paciente_k").val();
-        params.nombres	=$("#pre_nombre").val();
-        params.apellidos	=$("#pre_apellido").val();
-        params.num_id	=$("#pre_identidad").val();
-        params.prefix	=$("#pre_prefix").val();
-        params.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
-        //params.foto =
-        options.params = params;
-        var FT=fileURL.substr(fileURL.lastIndexOf('/')+1);
-        var lastJpg = FT.substr(FT.length - 3);
-        if(lastJpg!=="jpg"){
-            FT=FT.replace(/%/g,"_");
-            options.fileName=FT+".jpg";
-        }
-        socket.emit("imagenPaciente",options); 
-    
-    options.mimeType="image/jpeg"; 
-    options.directorio="imgPanta"; 
-    var headers={'headerParam':'headerValue'};    
-    options.headers = headers;
-    */
-    /*var ft = new FileTransfer();
-    ft.onprogress = function(ProgressEvent) {
-        if (ProgressEvent.lengthComputable) {
-            pbar.setValue(Math.round(ProgressEvent.loaded / ProgressEvent.total*100));
-            if(Math.round(ProgressEvent.loaded / ProgressEvent.total*100)==100){
-                $('#msg').text('Completado!');
-            }else{
-                $('#msg').text('Enviando...'+FT);  
-                if (Math.round(ProgressEvent.loaded / ProgressEvent.total*100) % 2 == 0){
-                    $('#msg').css('bacground-color','red');
-                }else{
-                    $('#msg').css('bacground-color','blue');
-                }
-            }
-        }else{
-          loadingStatus.increment();
-        }
-    };    
-    ft.upload(fileURL, uri, win, fail, options); */    
+    imageNode.load(function(){   
+        socket.emit("imagenPaciente",datosPaciente);   
+    }); 
 }
 
 // Called when a photo is successfully retrieved (photo retrieved)
@@ -134,9 +58,9 @@ function capturePhoto(uib_id) {
   // Take picture using device camera and retrieve image as base64-encoded string
   if(!navigator.camera) {
     onFail('Missing the Cordova camera plugin');
-  }
+  }    
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20,
-    destinationType: destinationType.FILE_URI });//DATA_URI
+    destinationType: destinationType.DATA_URL});//DATA_URI,DATA_URL,sourceType: source
 }
 window.capturePhoto = capturePhoto;
 
@@ -199,9 +123,9 @@ function getImage(source){
 }
 window.getImage = getImage;
 function onCapturePhotoSuccess(imageURI){ 
-  var imageNode = document.getElementById('imgPre');
-  var photo = imageURI;
-  imageNode.src="data:image/jpeg;base64,"+photo;
+    var imageNode = document.getElementById('imgPre');
+    var photo = imageURI;
+    imageNode.src="data:image/jpeg;base64,"+photo;
 }
 function onCapturePhotoError(message){
     console.log('Captured Failed because: ' + message); 
