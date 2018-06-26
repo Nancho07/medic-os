@@ -34,7 +34,7 @@ function onPhotoDataSuccess(imageData) {
         datosPaciente.prefix	=$("#pre_prefix").val().trim();
         datosPaciente.fecha_modificacion = moment(new Date()).format('YYYY-MM-DD');
         datosPaciente.foto = imageNode.attr('src');
-        datosPaciente.app	="medic";
+        datosPaciente.app	="medic"; 
         
     imageNode.load(function(){   
         socket.emit("imagenPaciente",datosPaciente);   
@@ -60,7 +60,7 @@ function capturePhoto(uib_id) {
     onFail('Missing the Cordova camera plugin');
   }    
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20,
-    destinationType: destinationType.DATA_URL});//DATA_URI,DATA_URL,sourceType: source
+    destinationType: destinationType.DATA_URL,correctOrientation:true});//DATA_URI,DATA_URL,sourceType: source
 }
 window.capturePhoto = capturePhoto;
 
