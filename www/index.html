@@ -23,7 +23,11 @@
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
         <!--<link rel="stylesheet" href="css/bootstrap-material-datetimepicker.css" type="text/css"/>-->
         <link rel="stylesheet" href="css/materialDateTimePicker.css" />
-
+        <style>
+            canvas{
+                display: none;
+            }
+        </style>
         <script src="cordova.js"></script> 
         <script src="xdk/init-dev.js"></script>  
         <script src="js/socket.io.min.js"></script> 
@@ -54,7 +58,7 @@
                                             </div>
                                         </div>
                                         <div data-for="inputUsuario">
-                                            <div class="form-group">
+                                            <div class="form-group"> 
                                                 <input type="text" class="form-control px-3" name="inputUsuario" data-form-field="Name" placeholder="Usuario" required="" id="inputUsuario" style="border-radius:20px;width:100%;padding:5px;text-align: left;">
                                             </div>
                                         </div>
@@ -92,7 +96,7 @@
                         </div>
                     </button>
                     <div class="menu-logo">
-                        <div class="navbar-brand menu_medic_os">
+                        <div id="logo_page1" class="navbar-brand menu_medic_os">
                             <span class="navbar-logo">
                                 <a href="#">
                                      <img src="images/inadi_96.png" alt="" style="height: 3.8rem;">
@@ -107,7 +111,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent0">
                         <div class="navbar-buttons mbr-section-btn">
-                            <a class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
+                            <a id="back1" class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
                                 <span class="mbrib-menu mbr-iconfont mbr-iconfont-btn"></span>
                                 Menú
                             </a>
@@ -175,7 +179,7 @@
                         </div>
                     </button>
                     <div class="menu-logo">
-                        <div class="navbar-brand menu_medic_os">
+                        <div id="logo_page2" class="navbar-brand menu_medic_os">
                             <span class="navbar-logo">
                                 <a href="#">
                                      <img src="images/inadi_96.png" alt="" style="height: 3.8rem;">
@@ -190,7 +194,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                         <div class="navbar-buttons mbr-section-btn">
-                            <a class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
+                            <a id="back2" class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
                                 <span class="mbrib-menu mbr-iconfont mbr-iconfont-btn"></span>
                                 Menú
                             </a>
@@ -230,7 +234,7 @@
                         </div>
                     </button>
                     <div class="menu-logo">
-                        <div class="navbar-brand menu_medic_os">
+                        <div id="logo_page3" class="navbar-brand menu_medic_os">
                             <span class="navbar-logo">
                                 <a href="#">
                                      <img src="images/inadi_96.png" alt="" style="height: 3.8rem;">
@@ -245,7 +249,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent2">
                         <div class="navbar-buttons mbr-section-btn">
-                            <a class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
+                            <a id="back3" class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
                                 <span class="mbrib-menu mbr-iconfont mbr-iconfont-btn"></span>
                                 Menú
                             </a>
@@ -271,7 +275,7 @@
                     </div>
                 </div>
             </section>
-        </div>
+        </div> 
         <div class="upage hidden" id="menu">
             <section class="carousel slide cid-qUrQZA4VhQ" data-interval="false" id="slider1-1">
                 <div class="full-screen">
@@ -359,7 +363,7 @@
                         </div>
                     </button>
                     <div class="menu-logo">
-                        <div class="navbar-brand menu_medic_os">
+                        <div id="logo_page4" class="navbar-brand menu_medic_os">
                             <span class="navbar-logo">
                                 <a href="#">
                                      <img src="images/inadi_96.png" alt="" style="height: 3.8rem;">
@@ -374,7 +378,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent3">
                         <div class="navbar-buttons mbr-section-btn">
-                            <a class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
+                            <a id="back4" class="btn btn-sm btn-primary display-4 menu_medic_os" href="#">
                                 <span class="mbrib-menu mbr-iconfont mbr-iconfont-btn"></span>
                                 Menú
                             </a>
