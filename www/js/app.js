@@ -855,6 +855,10 @@ function coneccion(){
         } 
     });
 }
+function back(){
+    activate_page("#menu");
+    return false;
+}
 function onAppReady(){
     delServidor({mensaje:'<img src="images/trayenta.png">',success:true,ancho:"100%"});
     
@@ -932,7 +936,6 @@ function onAppReady(){
     });
     $("#logo_page3").click(function(){
       activate_page("#menu");
-      location.href="#menu";
       return false;
     });
     $("#logo_page4").click(function(){
