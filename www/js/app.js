@@ -920,7 +920,7 @@ function onAppReady(){
           //socket.emit("reOrdenarCitas",usuario);
         }
     });
-    $("#logo_page1").click(function(){
+    /*$("#logo_page1").click(function(){
       activate_page("#menu");
       location.href="#menu";
       return false;
@@ -959,7 +959,7 @@ function onAppReady(){
       activate_page("#menu"); 
       //location.href="#menu";
       return false;
-    });
+    });*/
     $("#btn_fotografia").click(function(){
       activate_page("#fotografia"); 
       //location.href="#fotografia";
