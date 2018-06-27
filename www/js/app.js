@@ -601,7 +601,7 @@ function coneccion(){
         }
     });
     socket.on("permisosCargados",function(datos){   
-        console.log("Permisos Cargados 1-> ",datos);
+        //console.log("Permisos Cargados 1-> ",datos);
         $.each(datos,function(i,data){ 
           if(data.pagina=="menu"){            
             if(data.valor=='true'){

@@ -34,7 +34,7 @@ function foto_usuario(datos){
 
 }
 function btnMenu(data){    
-    console.log("BTN Menu-> ",data);
+    //console.log("BTN Menu-> ",data);
     usuario.cod = $(data).attr("id");
     usuario.aplicacion_parent_k = $(data).attr("data-app");
     usuario.pagina = $(data).attr("data-name");
