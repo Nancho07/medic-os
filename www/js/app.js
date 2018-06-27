@@ -920,22 +920,42 @@ function onAppReady(){
           //socket.emit("reOrdenarCitas",usuario);
         }
     });
-    $(".navbar-brand").click(function(){
+    $("#logo_page1").click(function(){
       activate_page("#menu");
       location.href="#menu";
       return false;
     });
-    $(".navbar-brand .menu_medic_os").click(function(){
+    $("#logo_page2").click(function(){
+      activate_page("#menu");
+      location.href="#menu";
+      return false;
+    });
+    $("#logo_page3").click(function(){
+      activate_page("#menu");
+      location.href="#menu";
+      return false;
+    });
+    $("#logo_page4").click(function(){
       activate_page("#menu"); 
       //location.href="#menu";
       return false;
     });
-    $("#navbarSupportedContent3 .menu_medic_os").click(function(){
+    $("#back1").click(function(){
       activate_page("#menu"); 
       //location.href="#menu";
       return false;
     });
-    $("#navbarSupportedContent0 .menu_medic_os").click(function(){
+    $("#back2").click(function(){
+      activate_page("#menu"); 
+      //location.href="#menu";
+      return false;
+    });
+    $("#back3").click(function(){
+      activate_page("#menu"); 
+      //location.href="#menu";
+      return false;
+    });
+    $("#back4").click(function(){
       activate_page("#menu"); 
       //location.href="#menu";
       return false;
