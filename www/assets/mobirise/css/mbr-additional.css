@@ -1560,7 +1560,7 @@ body {
 }
 @media (max-width: 576px) {
   .cid-qUrQZA4VhQ .mbr-slider .carousel-indicators {
-    display: none !important;
+    /*display: none !important;*/
   }
 }
 .cid-qUrQZA4VhQ .mbr-slider > .container img {
