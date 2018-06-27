@@ -526,7 +526,7 @@ function coneccion(){
         }
     });
     socket.on("buscarPaciente",function(datos){ 
-        console.log("Buscar Paciente: ",datos);
+        //console.log("Buscar Paciente: ",datos);
         if(datos.successData === true && (datos.pagina=="movil")){
             /************ FOTO *******************************/
             if(datos.data[0].foto!==null && datos.data[0].foto!==""){
@@ -925,7 +925,17 @@ function onAppReady(){
       location.href="#menu";
       return false;
     });
-    $(".menu_medic_os").click(function(){
+    $(".navbar-brand .menu_medic_os").click(function(){
+      activate_page("#menu"); 
+      //location.href="#menu";
+      return false;
+    });
+    $("#navbarSupportedContent3 .menu_medic_os").click(function(){
+      activate_page("#menu"); 
+      //location.href="#menu";
+      return false;
+    });
+    $("#navbarSupportedContent0 .menu_medic_os").click(function(){
       activate_page("#menu"); 
       //location.href="#menu";
       return false;
