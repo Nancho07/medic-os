@@ -942,7 +942,7 @@ function onAppReady(){
       activate_page("#menu"); 
       //location.href="#menu";
       return false;
-    });
+    });*/
     $("#back1").click(function(){
       activate_page("#menu"); 
       //location.href="#menu";
@@ -962,7 +962,7 @@ function onAppReady(){
       activate_page("#menu"); 
       //location.href="#menu";
       return false;
-    });*/
+    });
     $("#btn_fotografia").click(function(){
       activate_page("#fotografia"); 
       //location.href="#fotografia";
