@@ -84,7 +84,16 @@
                 </div>
             </section>
         </div>
-        <div class="upage hidden" id="citas_hoy" style="height:100%;">
+        <div class="upage hidden" id="citas_hoy" style="height:100%;"> 
+            <!-- panel izquierdo -->
+                <div id="mySidenav" class="sidenav">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                  <a href="#">About</a>
+                  <a href="#">Services</a>
+                  <a href="#">Clients</a>
+                  <a href="#">Contact</a>
+                </div>
+            <!-- /panel izquierdo -->
             <section class="menu cid-qUwVeX4Nsl" once="menu" id="menu1-3">
                 <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
                     <!--style="opacity: 0.8; background-color: rgb(7, 59, 76);"-->
@@ -116,6 +125,7 @@
                                 <span class="mbrib-menu mbr-iconfont mbr-iconfont-btn"></span>
                                 Menú
                             </a>
+                            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
                         </div>
                     </div>
                 </nav>
