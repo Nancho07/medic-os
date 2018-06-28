@@ -343,7 +343,7 @@ function coneccion(){
 
                             var texto_list = '<li id="'+data.parent2[i].cita_k+'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="/*height:80px;*/padding:0px;overflow:auto">'+
                                 '<span class="handle">'+
-                                    '<div class="col-xs-2 col-sm-3 col-md-3 col-lg-3" style="float:left;margin-top: 10px;/*width:20%;padding:0px;height:100%;*/">'+
+                                    '<div class="padding:0px;height:100%;float:left;width:20%">'+
                                         '<img src='+imagen+' style="border-radius: 30px;width:100%"/>'+
                                     '</div>'+
                                     '<div align="left" class="col-xs-8 col-sm-7 col-md-7 col-lg-7" style="padding:0px;height:100%;float:left;width:80%">'+
