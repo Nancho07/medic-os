@@ -209,6 +209,10 @@ function coneccion(){
     }); 
     socket.on("loggin",function(datos){
         if(datos.success==true){
+            $("#back1").bind("click",function(){                     
+                activate_page("#menu"); 
+                return false;
+             });
           usuario.usuario = datos.usuario;
           usuario.email_usuario = datos.email_usuario;
           usuario.config_k = datos.config_k;          
@@ -941,9 +945,9 @@ function onAppReady(){
       //location.href="#menu";
       return false;
     });*/
-    $("#back1").click(function(){
+    /*$("#back1").click(function(){
         back();
-    });
+    });*/
     $("#back2").click(function(){
       back();
     });
