@@ -60,7 +60,7 @@ function capturePhoto(uib_id) {
     onFail('Missing the Cordova camera plugin');
   }    
   navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20,
-    destinationType: destinationType.DATA_URL,correctOrientation:true});//DATA_URI,DATA_URL,sourceType: source
+    destinationType: destinationType.DATA_URL,sourceType: pictureSource,correctOrientation:true});//DATA_URI,DATA_URL,sourceType: source
 }
 window.capturePhoto = capturePhoto;
 
