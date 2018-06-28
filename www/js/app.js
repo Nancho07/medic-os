@@ -229,7 +229,6 @@ function coneccion(){
           //$("#btns_citas_menu").empty();
           //$("#btns_pacientes_menu").empty();
           socket.emit('identificacion', usuario); 
-          //return false;
         }else{          
           mensaje = {mensaje:"No Tiene Autorización",success:false};
           delServidor(mensaje); 
@@ -857,7 +856,6 @@ function coneccion(){
 }
 function back(){
     activate_page("#menu");
-    return false;
 }
 function onAppReady(){
     delServidor({mensaje:'<img src="images/trayenta.png">',success:true,ancho:"100%"});
@@ -944,29 +942,16 @@ function onAppReady(){
       return false;
     });*/
     $("#back1").click(function(){
-      activate_page("#menu"); 
-      //location.href="#menu";
-      return false;
+        back();
     });
     $("#back2").click(function(){
-      activate_page("#menu"); 
-      //location.href="#menu";
-      return false;
+      back();
     });
     $("#back3").click(function(){
-      activate_page("#menu"); 
-      //location.href="#menu";
-      return false;
+      back();
     });
     $("#back4").click(function(){
-      activate_page("#menu"); 
-      //location.href="#menu";
-      return false;
-    });
-    $("#btn_fotografia").click(function(){
-      activate_page("#fotografia"); 
-      //location.href="#fotografia";
-      return false;
+      back();
     });  
     $(".btn_p_c").click(function(){
         if(usuario.usuario && usuario.usuario!=undefined){
