@@ -229,6 +229,13 @@ function coneccion(){
                 activate_page("#menu"); 
                 return false;
              });
+            $("#buscar_btn").bind("click",function(){
+                var data = {};
+                data.prefix = usuario.prefix;
+                data.num_id = $("#buscar").val();
+                data.pagina = "movil";
+                socket.emit("buscarPaciente",data);
+            });
           usuario.usuario = datos.usuario;
           usuario.email_usuario = datos.email_usuario;
           usuario.config_k = datos.config_k;          
@@ -951,13 +958,7 @@ function onAppReady(){
         }      
       return false;
     });
-    $("#buscar_btn").click(function(){
-        var data = {};
-        data.prefix = usuario.prefix;
-        data.num_id = $("#buscar").val();
-        data.pagina = "movil";
-        socket.emit("buscarPaciente",data);
-    });
+    
     $("#btn_guardar_pre").click(function(){
         if($("#femeninof").prop("checked")==true){
             var sexo = "F";
