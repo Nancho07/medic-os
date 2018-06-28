@@ -482,8 +482,8 @@ function coneccion(){
                             }
                             var texto_list = '<li id="l2'+data.parent2[i].cita_k+'" class="" style="height:70px;">'+
                                 '<span class="handle">'+
-                                    '<div align="left" class="col-xs-2 col-sm-3 col-md-3 col-lg-3" style="padding:0px;height:100%;float:left;width:20%">'+
-                                        '<img src='+imagen+' width="60%" />'+
+                                    '<div class="col-xs-2 col-sm-3 col-md-3 col-lg-3" style="float:left;margin-top: 10px;" style="col-xs-2 col-sm-3 col-md-3 col-lg-3" style="float:left;margin-top: 10px;">'+
+                                        '<img src='+imagen+' style="border-radius: 30px;width:100%"/>'+
                                     '</div>'+
                                     '<div align="left" class="col-xs-10 col-sm-9 col-md-9 col-lg-9" style="padding:0px;height:100%;float:left;width:80%">'+
                                     '<h5 class="list-group-item-heading text-white" style="margin-top:5px;">'+data.parent2[i].paciente+'</h5>'+
