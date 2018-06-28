@@ -889,6 +889,19 @@ function coneccion(){
 function back(){
     activate_page("#menu");
 }
+/****************** panel lateral citas **********************/
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+/****************** Fin Panel Lateral Citas ******************/
 function onAppReady(){
     delServidor({mensaje:'<img src="images/trayenta.png">',success:true,ancho:"100%"});
     
@@ -1011,8 +1024,7 @@ function onAppReady(){
         format:'DD/MM/YYYY HH:mm',
         clearButton: true,
         lang : 'es'
-    });
-    
+    }); 
 }
 document.addEventListener("app.Ready", onAppReady, false) ;
 // document.addEventListener("deviceready", onAppReady, false) ;
