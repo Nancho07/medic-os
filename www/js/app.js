@@ -336,15 +336,15 @@ function coneccion(){
                                 var boton_preClinica ='';                                 
                             } else{
                                 var boton_preClinica ='<div align="left" class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding:0px;float:left;">'+
-                                            '<button type="button" class="btn-primary btn-form display-4 btn_p_c" style="border-radius:30px;width:100%;margin-top: 15px;" data-expediente="'+data.parent2[i].expediente_k+'" data-identidad="'+data.parent2[i].identidad+'" data-nombre="'+data.parent2[i].pnombre+'" data-apellido="'+data.parent2[i].papellido+'" data-prefix="'+data.prefix+
+                                            '<button type="button" class="btn-primary btn-form display-4 btn_p_c" style="border-radius:30px;width:100%;margin-top: 15px;height: 50px;" data-expediente="'+data.parent2[i].expediente_k+'" data-identidad="'+data.parent2[i].identidad+'" data-nombre="'+data.parent2[i].pnombre+'" data-apellido="'+data.parent2[i].papellido+'" data-prefix="'+data.prefix+
                                             '" data-texto2="'+texto2+'" data-sexo="'+data.parent2[i].sexo+'" data-edad="'+edadReal+'">Pre-C</button>'+
                                         '</div>';
                             }
 
                             var texto_list = '<li id="'+data.parent2[i].cita_k+'" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="/*height:80px;*/padding:0px;overflow:auto">'+
                                 '<span class="handle">'+
-                                    '<div align="left" class="col-xs-2 col-sm-3 col-md-3 col-lg-3" style="float:left;margin-top: 10px;/*width:20%;padding:0px;height:100%;*/">'+
-                                        '<img src='+imagen+' width="75%" style="border-radius: 30px;"/>'+
+                                    '<div class="col-xs-2 col-sm-3 col-md-3 col-lg-3" style="float:left;margin-top: 10px;/*width:20%;padding:0px;height:100%;*/">'+
+                                        '<img src='+imagen+' style="border-radius: 30px;"/>'+
                                     '</div>'+
                                     '<div align="left" class="col-xs-8 col-sm-7 col-md-7 col-lg-7" style="padding:0px;height:100%;float:left;width:80%">'+
                                     '<h5 class="list-group-item-heading text-white data-nombres" style="margin-top:5px;">'+data.parent2[i].paciente+'</h5>'+
