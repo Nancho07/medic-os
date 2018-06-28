@@ -891,15 +891,11 @@ function back(){
 }
 /****************** panel lateral citas **********************/
     function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        document.getElementById("mySidenav").style.width = "100%";
     }
 
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft= "0";
-        document.body.style.backgroundColor = "white";
     }
 /****************** Fin Panel Lateral Citas ******************/
 function onAppReady(){
