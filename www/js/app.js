@@ -223,7 +223,7 @@ function coneccion(){
              });
             $("#back4").bind("click",function(){                     
                 activate_page("#menu"); 
-                return false;
+                return false; 
              });
             $(".navbar-logo").bind("click",function(){                     
                 activate_page("#menu"); 
@@ -552,7 +552,7 @@ function coneccion(){
         }
     });
     socket.on("buscarPaciente",function(datos){ 
-        //console.log("Buscar Paciente: ",datos);
+        console.log("Buscar Paciente: ",datos);
         if(datos.successData === true && (datos.pagina=="movil")){
             /************ FOTO *******************************/
             if(datos.data[0].foto!==null && datos.data[0].foto!==""){
@@ -596,6 +596,11 @@ function coneccion(){
             $("#imgPre").bind("click",function(){
                 capturePhoto();
             });
+            $("#pre_identidad").val(datos.data[0].num_id);
+            $("#pre_paciente_k").val(datos.data[0].paciente_k);
+            $("#pre_nombre").val(datos.data[0].nombre);
+            $("#pre_apellido").val(datos.data[0].apellido);
+            $("#pre_prefix").val(usuario.prefix);
         }else{
             alertas.contenido='Regitro sin expediente';
             alertas.btnConfirma="No";
