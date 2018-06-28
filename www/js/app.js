@@ -213,6 +213,22 @@ function coneccion(){
                 activate_page("#menu"); 
                 return false;
              });
+            $("#back2").bind("click",function(){                     
+                activate_page("#menu"); 
+                return false;
+             });
+            $("#back3").bind("click",function(){                     
+                activate_page("#menu"); 
+                return false;
+             });
+            $("#back4").bind("click",function(){                     
+                activate_page("#menu"); 
+                return false;
+             });
+            $(".navbar-logo").bind("click",function(){                     
+                activate_page("#menu"); 
+                return false;
+             });
           usuario.usuario = datos.usuario;
           usuario.email_usuario = datos.email_usuario;
           usuario.config_k = datos.config_k;          
@@ -925,37 +941,6 @@ function onAppReady(){
                 usuario.nuevoOrden=nuevoOrden;
           //socket.emit("reOrdenarCitas",usuario);
         }
-    });
-    /*$("#logo_page1").click(function(){
-      activate_page("#menu");
-      location.href="#menu";
-      return false;
-    });
-    $("#logo_page2").click(function(){
-      activate_page("#menu");
-      location.href="#menu";
-      return false;
-    });
-    $("#logo_page3").click(function(){
-      activate_page("#menu");
-      return false;
-    });
-    $("#logo_page4").click(function(){
-      activate_page("#menu"); 
-      //location.href="#menu";
-      return false;
-    });*/
-    /*$("#back1").click(function(){
-        back();
-    });*/
-    $("#back2").click(function(){
-      back();
-    });
-    $("#back3").click(function(){
-      back();
-    });
-    $("#back4").click(function(){
-      back();
     });  
     $(".btn_p_c").click(function(){
         if(usuario.usuario && usuario.usuario!=undefined){
