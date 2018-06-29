@@ -31,8 +31,8 @@
     <!-- docs: https://github.com/apache/cordova-plugin-splashscreen -->
     <preference name="AutoHideSplashScreen" value="true"/>
     <preference name="FadeSplashScreen" value="true"/>
-    <preference name="FadeSplashScreenDuration" value="2"/>
-    <preference name="SplashScreenDelay" value="3000"/>
+    <preference name="FadeSplashScreenDuration" value="2000"/>
+    <preference name="SplashScreenDelay" value="6000"/>
     <preference name="ShowSplashScreenSpinner" value="false"/>
 
     <!-- below requires the status bar plugin -->
